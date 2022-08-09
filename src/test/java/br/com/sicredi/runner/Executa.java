@@ -26,5 +26,6 @@ public class Executa {
   @Test
   public void teste() throws IOException {
     metodos.selectedSwitchVersions(testesElementos.selectedSwitchVersions);
+    metodos.btnAddCustomer(testesElementos.btnAddCustomer);
   }
 }
