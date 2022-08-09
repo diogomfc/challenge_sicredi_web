@@ -19,8 +19,9 @@ public class ElementosTestes {
   public By SelectEmployee = By
       .xpath("//div[@id='field_salesRepEmployeeNumber_chosen']//a//span[text()='Select from Employeer']");
   public By inputTextChosenSearch = By.xpath("//div[@class='chosen-drop']//div//input");
+  public By insertTextChosenSearch = By.xpath("//div[@class='chosen-drop']//div//input");
 
+  public By inputCreditLimit = By.id("field-creditLimit");
   public By btnSave = By.id("form-button-save");
-  public By btnCancel = By.id("form-button-cancel");
   public By mensageValida = By.xpath("//div[@id='report-success']/p");
 }
