@@ -2,16 +2,13 @@ package br.com.sicredi.pages;
 
 import static org.junit.Assert.*;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.Keys;
 
 public class MetodosdeTestes {
@@ -79,7 +76,7 @@ public class MetodosdeTestes {
     driver.findElement(elemento).sendKeys(texto);
   }
 
-  public void SelectEmployee(By elemento) {
+  public void selectEmployee(By elemento) {
     driver.findElement(elemento).click();
   }
 
@@ -95,13 +92,14 @@ public class MetodosdeTestes {
     driver.findElement(elemento).sendKeys(num);
   }
 
-  public void scroll(By elemento) {
-    WebElement element = driver.findElement(elemento);
-    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+  public void scroll(int n1, int n2) {
+    JavascriptExecutor jsScroll = (JavascriptExecutor) driver;
+    jsScroll.executeScript("window.scrollBy(" + n1 + "," + n2 + ")");
   }
 
-  public void btnSave(By elemento) {
+  public void btnSave(By elemento) throws InterruptedException {
     driver.findElement(elemento).click();
+    Thread.sleep(2000);
   }
 
   public void mensageValida(By elemento, String mensagem) throws InterruptedException {
@@ -110,7 +108,7 @@ public class MetodosdeTestes {
     Thread.sleep(3000);
   }
 
-  public void screenshot(String fileName, WebDriver driver) throws IOException {
+  public void screenshot(String fileName) throws IOException {
     TakesScreenshot scrShot = (TakesScreenshot) driver;
     java.io.File scrFile = scrShot.getScreenshotAs(OutputType.FILE);
     java.io.File destFile = new java.io.File("./Evidencias/" + fileName + ".png");
